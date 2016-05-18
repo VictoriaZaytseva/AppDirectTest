@@ -4,7 +4,13 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
+	 <!-- Loads Spring Security config file -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>        
+            /WEB-INF/data-source-cfg.xml
+        </param-value>
+    </context-param>
     <servlet>
         <servlet-name>appdirecttest</servlet-name>
         <servlet-class>
