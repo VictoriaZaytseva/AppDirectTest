@@ -11,6 +11,7 @@
             /WEB-INF/data-source-cfg.xml
         </param-value>
     </context-param>
+
     <servlet>
         <servlet-name>appdirecttest</servlet-name>
         <servlet-class>
@@ -18,10 +19,12 @@
         </servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>appdirecttest</servlet-name>
         <url-pattern>/welcome.jsp</url-pattern>
         <url-pattern>/welcome.html</url-pattern>
+        <url-pattern>/create</url-pattern>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
   

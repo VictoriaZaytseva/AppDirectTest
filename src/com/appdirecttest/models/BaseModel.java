@@ -1,8 +1,8 @@
 package com.appdirecttest.models;
 
-public abstract class Model {
+public abstract class BaseModel {
 	
-	private String id;
+	protected String id;
 	
 	public String getId(){
 		return this.id;

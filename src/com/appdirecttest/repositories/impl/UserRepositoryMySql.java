@@ -16,16 +16,14 @@ public class UserRepositoryMySql extends AbstractRepository implements UserRepos
 	@Autowired
 	private DriverManagerDataSource driverManagerDataSource;	
 	private String Table = "users";
-	private String Fields = "(id, email, open_id, first_name, last_name, company_id, language)";
-	private String QMarks= "?, ?, ?, ?, ?, ?, ?";
+	private String Fields = "(id, email, open_id, company_id, subscriptionId)";
+	private String QMarks= "?, ?, ?, ?, ?";
 	
 	@Override
 	public User findById(String id) {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM users WHERE Id = ?";
-		
+		String sql = "SELECT * FROM " + Table + "WHERE id = ?";
 		Connection conn = null;
-		
+	
 		try {
 			conn = driverManagerDataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -37,10 +35,8 @@ public class UserRepositoryMySql extends AbstractRepository implements UserRepos
 					rs.getString("id"),
 					rs.getString("email"), 
 					rs.getString("open_id"),
-					rs.getString("first_name"),
-					rs.getString("last_name"),
 					rs.getString("company_id"),
-					rs.getString("language")
+					rs.getString("subscription_id")
 				);
 			}
 			rs.close();
@@ -80,10 +76,8 @@ public class UserRepositoryMySql extends AbstractRepository implements UserRepos
 			ps.setString(1, user.getId());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getOpenId());
-			ps.setString(4, user.getFirstName());
-			ps.setString(5, user.getLastName());
-			ps.setString(6, user.getCompanyId());
-			ps.setString(7, user.getLanguage());
+			ps.setString(4, user.getCompanyId());
+			ps.setString(5, user.getSubscriptionId());
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {

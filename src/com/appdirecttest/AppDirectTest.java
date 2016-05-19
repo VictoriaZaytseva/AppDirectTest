@@ -21,8 +21,8 @@ public class AppDirectTest {
 
 	@RequestMapping("/welcome")
 	public ModelAndView helloWorld() {
-		User user =  new User("111", "zzz", "zzz", "zzz", "zzz", "zz", "eng");
-		userRepositoryMySql.insert(user);
+//		User user =  new User("111", "zzz", "zzz", "zzz", "zzz", "zz", "eng", true, false);
+//		userRepositoryMySql.insert(user);
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>********** Hello World</h3>This message is coming from AppDirectTest.java **********</div><br><br>";
 		return new ModelAndView("welcome", "message", message);

@@ -1,26 +1,21 @@
 package com.appdirecttest.models;
 
-public class User extends Model {
+public class User extends BaseModel {
 	
-	private String id;
 	private String email;
 	private String openId;
-	private String firstName;
-	private String lastName;
 	private String companyId;
+	private String subscriptionId;
 	
-	public User(String id, String email, String openId, String firstName, String lastName, String companyId,
-			String language) {
+	public User(String id, String email, String openId, String companyId, String subscriptionId) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.openId = openId;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.companyId = companyId;
-		this.language = language;
+		this.setSubscriptionId(subscriptionId);
 	}
-
+	
 	private String language;
 	
 	public String getEmail() {
@@ -31,14 +26,6 @@ public class User extends Model {
 		this.email = email;
 	}
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
 	public String getOpenId() {
 		return openId;
 	}
@@ -46,15 +33,7 @@ public class User extends Model {
 	public void setOpenId(String openId) {
 		this.openId = openId;
 	}
-	
-	public String getLastName() {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
+		
 	public String getLanguage() {
 		return language;
 	}
@@ -69,6 +48,14 @@ public class User extends Model {
 	
 	public void setCompany(String companyId) {
 		this.companyId = companyId;
+	}
+
+	public String getSubscriptionId() {
+		return subscriptionId;
+	}
+
+	public void setSubscriptionId(String subscriptionId) {
+		this.subscriptionId = subscriptionId;
 	}
 	
 }
