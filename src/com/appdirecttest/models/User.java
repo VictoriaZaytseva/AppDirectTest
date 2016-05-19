@@ -1,7 +1,8 @@
 package com.appdirecttest.models;
 
 public class User extends BaseModel {
-	
+	//create table users(id varchar(20) primary key, open_id varchar(20), company_id varchar(20), subscription_id varchar(20));
+	//alter table users add constraint user_subscription foreign key users(subscription_id) references subscriptions(id) on delete set null;
 	private String email;
 	private String openId;
 	private String companyId;

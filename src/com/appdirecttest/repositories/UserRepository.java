@@ -11,4 +11,6 @@ public interface UserRepository {
 	public User findByEmail(String email);
 	
 	public void insert(User user);
+	
+	public User findBySubscription(String subscriptionId);
 }

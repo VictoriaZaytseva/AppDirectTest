@@ -54,15 +54,71 @@ public class UserRepositoryMySql extends AbstractRepository implements UserRepos
 	}
 
 	@Override
-	public User findByOpenId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User findByOpenId(String open_id) {
+		String sql = "SELECT * FROM " + Table + "WHERE open_id = ?";
+		Connection conn = null;
+	
+		try {
+			conn = driverManagerDataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, open_id);
+			User user = null;
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				user = new User(
+					rs.getString("id"),
+					rs.getString("email"), 
+					rs.getString("open_id"),
+					rs.getString("company_id"),
+					rs.getString("subscription_id")
+				);
+			}
+			rs.close();
+			ps.close();
+			return user;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (conn != null) {
+				try {
+				conn.close();
+				} catch (SQLException e) {}
+			}
+		}
 	}
 
 	@Override
 	public User findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM " + Table + "WHERE email = ?";
+		Connection conn = null;
+	
+		try {
+			conn = driverManagerDataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			User user = null;
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				user = new User(
+					rs.getString("id"),
+					rs.getString("email"), 
+					rs.getString("open_id"),
+					rs.getString("company_id"),
+					rs.getString("subscription_id")
+				);
+			}
+			rs.close();
+			ps.close();
+			return user;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (conn != null) {
+				try {
+				conn.close();
+				} catch (SQLException e) {}
+			}
+		}
 	}
 	
 	@Override
@@ -91,6 +147,40 @@ public class UserRepositoryMySql extends AbstractRepository implements UserRepos
 			}
 		}
 
+	}
+
+	@Override
+	public User findBySubscription(String subscriptionId) {
+		String sql = "SELECT * FROM " + Table + "WHERE subscription_id = ?";
+		Connection conn = null;
+	
+		try {
+			conn = driverManagerDataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, subscriptionId);
+			User user = null;
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				user = new User(
+					rs.getString("id"),
+					rs.getString("email"), 
+					rs.getString("open_id"),
+					rs.getString("company_id"),
+					rs.getString("subscription_id")
+				);
+			}
+			rs.close();
+			ps.close();
+			return user;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (conn != null) {
+				try {
+				conn.close();
+				} catch (SQLException e) {}
+			}
+		}
 	}
 	
 }
