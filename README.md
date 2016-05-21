@@ -22,6 +22,9 @@ I tested it with https://www.mockable.io/</li>
 </ul>
 <h2>What it does:</h2>
 <p>Create and cancel subscription!</p>
+<h2>ENDPOINTS</h2>
+<p> For create subscription event - /create </p>
+<p> For cancel subscription event - /cancel </p>
 <h2>What is planned:</h2>
 <ul>
 <li>1. Add oAuth</li>
