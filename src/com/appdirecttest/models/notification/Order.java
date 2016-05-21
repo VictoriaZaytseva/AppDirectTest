@@ -7,10 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
 	public String editionCode;
-    public String pricingDuration;
+	public String pricingDuration;
 
-    public Order(@JsonProperty("editionCode") String editionCode, @JsonProperty("pricingDuration") String pricingDuration){
-    	this.editionCode = editionCode;
-    	this.pricingDuration = pricingDuration;
-    }
+	@JsonCreator
+	public Order(@JsonProperty("editionCode") String editionCode,
+			@JsonProperty("pricingDuration") String pricingDuration) {
+		this.editionCode = editionCode;
+		this.pricingDuration = pricingDuration;
+	}
 }

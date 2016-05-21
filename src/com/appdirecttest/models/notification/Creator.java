@@ -10,6 +10,7 @@ public class Creator {
     public String openId;
     public String uuid;
     
+    @JsonCreator
     public Creator(@JsonProperty("email") String email, @JsonProperty("openId") String openId, @JsonProperty("uuid") String uuid){
     	this.email = email;
     	this.openId = openId;

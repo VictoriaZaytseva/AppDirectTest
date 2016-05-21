@@ -2,15 +2,24 @@ package com.appdirecttest.models;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+/**
+ * Response to AppDirect API class
+ * @author victoria
+ *
+ */
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class Response {
 	private Boolean success;
 	private String message;
 	private String accountIdentifier;
 	private String errorCode;
 
-	public Response()
-	{}
+	public static enum ErrorCode {
+		USER_ALREADY_EXISTS, ACCOUNT_NOT_FOUND, UNKNOWN_ERROR
+	}
+
+	public Response() {
+	}
 
 	public Response(Boolean success, String message, String errorCode) {
 		this.success = success;
@@ -22,7 +31,7 @@ public class Response {
 		this.success = success;
 		this.accountIdentifier = accountIdentifier;
 	}
-	
+
 	public Boolean getSuccess() {
 		return success;
 	}

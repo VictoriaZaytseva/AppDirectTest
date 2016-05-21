@@ -1,16 +1,16 @@
 package com.appdirecttest.repositories;
 
-import 	com.appdirecttest.models.User;
+import java.sql.SQLException;
 
+import 	com.appdirecttest.models.User;
+/**
+ * It was meant to do user services but it doesnt do it yet
+ * @author victoria
+ *
+ */
 public interface UserRepository {
 	
-	public User findById(String id);
-	
-	public User findByOpenId(String id);
-	
-	public User findByEmail(String email);
-	
-	public void insert(User user);
-	
-	public User findBySubscription(String subscriptionId);
+	public void insert(User user) throws SQLException;
+	public User findById(String id) throws SQLException;
+	public User findBySubscriptionId(String subscriptionId);
 }

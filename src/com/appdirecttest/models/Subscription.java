@@ -6,7 +6,14 @@ public class Subscription extends BaseModel {
 	private String status;
 	private String edition;
 	
+	public static enum NoticeType {
+		  	DEACTIVATED,
+		  	REACTIVATED,
+		  	CLOSED,
+		  	UPCOMING_INVOICE
+	}
 	public Subscription(String id, String companyName, String status, String edition) {
+		super(id);
 		this.id = id;
 		this.companyName = companyName;
 		this.status = status;
