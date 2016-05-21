@@ -4,6 +4,12 @@
 <h2>Instalation:</h2>
 <ul>
 <li>1. In servlet file add the path to your database</li>
+<li>and create database schemas:
+<p>create table subscriptions(id varchar(40) primary key, company_name varchar(80), status varchar(40), edition varchar(40));
+</p>
+<p>create table users(id varchar(40) primary key, email varchar(80), open_id varchar(100), subscription_id varchar(40));
+</p>
+</li>
 <li>2. mvn package will create a .war file</li>
 <li>3. drop it in the tomcat folder</li>
 <li>4. you can send it mock requests with the data from AppDirect api and test it
